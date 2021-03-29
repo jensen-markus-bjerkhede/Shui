@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "uuid": "MJODS2egWw",
+      "username": "johan.kivi@zocom.se",
+      "password": "$2b$10$rwK3FwzImivhAz/tSXSab.fjyZGyDP2jZQg4R8rdA05KjrXngr4n2",
+      "userkey": "U2FsdGVkX1/Xg/4e6VmQaO2VT24RenmOMGGgsGD01ug="
+    }
+  ],
+  "lckd": [
+    {
+      "id": "L7CVjI2Of",
+      "owner": "160984bba24d9f2cd82a1dc97da0f36007fbd74a917bf38db681a1bd736d46c2236615f9806a155ae560764b66d85895c7b202c5a154eb1616ef2df8f928796a",
+      "username": "johan.kivi",
+      "password": "U2FsdGVkX19C+QP6az6l7Lh0n1mLYehRWX/NQmOgHk8=",
+      "domain": "illuminati.org"
+    },
+    {
+      "id": "begSXZXxI",
+      "owner": "160984bba24d9f2cd82a1dc97da0f36007fbd74a917bf38db681a1bd736d46c2236615f9806a155ae560764b66d85895c7b202c5a154eb1616ef2df8f928796a",
+      "username": "johan.kivi",
+      "password": "U2FsdGVkX19jzk2Wjp0WUcEX24H2Dj8/KfDzhq7fFzPF6DyF7lVaA3DGUTnX3kj/",
+      "domain": "illuminati.org"
+    },
+    {
+      "id": "2b3Hu_UjK",
+      "owner": "160984bba24d9f2cd82a1dc97da0f36007fbd74a917bf38db681a1bd736d46c2236615f9806a155ae560764b66d85895c7b202c5a154eb1616ef2df8f928796a",
+      "username": "kallesvensson",
+      "password": "U2FsdGVkX19TiBB/9EJiajPKwg2FImM3yB0hk7NUGn0=",
+      "domain": "www.gp.se"
+    },
+    {
+      "id": "ipd4-t0NU",
+      "owner": "160984bba24d9f2cd82a1dc97da0f36007fbd74a917bf38db681a1bd736d46c2236615f9806a155ae560764b66d85895c7b202c5a154eb1616ef2df8f928796a",
+      "username": "alix",
+      "password": "U2FsdGVkX1++qu6rWxY6yakzoEzQrCOzdQUOFM8Sr9k=",
+      "domain": "www.kesofabriken.se"
+    },
+    {
+      "id": "0l-bzS_Vs",
+      "owner": "160984bba24d9f2cd82a1dc97da0f36007fbd74a917bf38db681a1bd736d46c2236615f9806a155ae560764b66d85895c7b202c5a154eb1616ef2df8f928796a",
+      "username": "kallesvensson",
+      "password": "U2FsdGVkX1/e/KU5LuDVmtxX7rB2x1FSXJKibk2DkWs=",
+      "domain": "www.gp.se"
+    }
+  ]
+}
