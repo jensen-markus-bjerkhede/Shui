@@ -9,7 +9,6 @@ const router = new Router();
 router.post('/', async (req, res) => {
 
     if(req.body.username && req.body.password) { 
-
         // encrypt pw with userkey
         const HASHED_PW = await bcrypt.hash(req.body.password, 10);
         

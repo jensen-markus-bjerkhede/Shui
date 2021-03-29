@@ -5,6 +5,18 @@
       "username": "johan.kivi@zocom.se",
       "password": "$2b$10$rwK3FwzImivhAz/tSXSab.fjyZGyDP2jZQg4R8rdA05KjrXngr4n2",
       "userkey": "U2FsdGVkX1/Xg/4e6VmQaO2VT24RenmOMGGgsGD01ug="
+    },
+    {
+      "uuid": "7fpQlYQeJr",
+      "username": "Markus",
+      "password": "$2b$10$hiMZOgXi1Mglr91mYPz27OEss6NwuCa9yNtuJkLV16s52qgU7HrD.",
+      "userkey": "U2FsdGVkX197p4JxZUYSYvQfFzLKEX7DwkF4NcIRcWM="
+    },
+    {
+      "uuid": "oT3FGFI-L2",
+      "username": "Markus",
+      "password": "$2b$10$yZapRfW/r61flze89P1hB.SsRLonsAZDhoERTVIlgYOXrF0CnxG5a",
+      "userkey": "U2FsdGVkX18qJa7GNWiIbKuCTsWy4yL97KNQzbHk1Is="
     }
   ],
   "lckd": [
@@ -42,6 +54,13 @@
       "username": "kallesvensson",
       "password": "U2FsdGVkX1/e/KU5LuDVmtxX7rB2x1FSXJKibk2DkWs=",
       "domain": "www.gp.se"
+    },
+    {
+      "id": "TdA6UDYbm",
+      "owner": "9ba5f7266b235d410743eb0ec9ec2df93da297d1532758ce5c2d59e3427a8c8d278c9e2f04e5336d267d44c06f85c65baf8b9522131fa733fc0447a5ef0444cd",
+      "username": "quitzor01",
+      "password": "U2FsdGVkX1+BjFf/ggtE77ygaDuB4VJODMko0eJsso4=",
+      "domain": "asdasdgdfsg"
     }
   ]
 }
