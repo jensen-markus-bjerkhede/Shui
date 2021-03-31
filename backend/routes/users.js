@@ -1,21 +1,25 @@
-const { Router } = require('express');
+const { Router } = require('express');
 const { db } = require('./db');
 const bcrypt = require('bcrypt');
 const shortid = require('shortid');
 const CryptoJS = require('crypto-js');
+const jwt = require("jsonwebtoken");
 
 const router = new Router();
 
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
 
-    if(req.body.username && req.body.password) { 
-        // encrypt pw with userkey
+    let user = db
+    .get('users')
+    .find({username: req.body.username})
+    .value()
+    if(user) {
+        return res.status(409).send('User already exist')
+    }
+    if (req.body.username && req.body.password) {
+
         const HASHED_PW = await bcrypt.hash(req.body.password, 10);
-        
-        // generate userkey 
         const USER_KEY = shortid.generate();
-
-        // encypt USER_KEY with our SECRET
         const ENCRYPTED_USER_KEY = CryptoJS.AES.encrypt(USER_KEY, process.env.SECRET).toString();
 
         let user = {
@@ -24,17 +28,36 @@ router.post('/', async (req, res) => {
             password: HASHED_PW, // hash with bcrypt
             userkey: ENCRYPTED_USER_KEY // encrypted with SECRET
         }
-        
-        // Add new user to db
-        db.get('users')
-        .push(user)
-        .write()
 
-        // All ok to frontend
+        db.get('users')
+            .push(user)
+            .write()
+
         res.status(201).send('User created.');
 
     } else {
         res.status(400).send('Whoops! Did you really entered the credentials correctly?')
+    }
+})
+router.post('/remove', async (req, res) => {
+
+    const token = req.headers['authorization'].split(' ')[1];
+    
+    try {
+       
+        const verified_user = jwt.verify(token, process.env.JWT_KEY);
+
+        let user = db
+        .get('users')
+        .remove({ uuid: verified_user.uuid })
+        .write();
+
+        res.status(201).send('User removed.');
+
+    } catch(err) {
+        // catch error
+        console.error(err)
+        res.status(400).send(err)
     }
 })
 

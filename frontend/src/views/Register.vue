@@ -1,6 +1,6 @@
 <template>
   <main id="register">
-      <img src="@/assets/logo.svg" alt="LCKD logo">
+      <img src="@/assets/logo.png" alt="LCKD logo">
       <h1>LCKD</h1>
       <h2>Keeping your passwords safe</h2>
       <section>

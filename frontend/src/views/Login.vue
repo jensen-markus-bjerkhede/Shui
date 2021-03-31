@@ -1,14 +1,15 @@
 <template>
   <main id="login">
-      <img src="@/assets/logo.svg" alt="LCKD logo">
-      <h1>LCKD</h1>
-      <h2>Keeping your passwords safe</h2>
+      <img src="@/assets/logo.png" alt="LCKD logo">
+      <h1>SHUI</h1>
+      <h2>FLOW FREELY</h2>
       <section>
           <label for="username">Username</label>
           <input type="text" name="username" v-model="username">
           <label for="password">Password</label>
           <input type="password" name="password" v-model="password">
           <a href="#" class="btn" @click.prevent="login">Logga in</a>
+          <img class="bottom" src="@/assets/Frame 1.png" alt="LCKD logo">
       </section>
   </main>
 </template>
@@ -67,5 +68,9 @@ export default {
         flex-direction: column;
         align-items: flex-start;
     }
+    
 }
+.bottom {
+        width: 100%;
+    }
 </style>

@@ -43,7 +43,7 @@ export default new Vuex.Store({
     },
     async register(ctx, cred) {
 
-      let resp = await axios.post(`${API}/users/`, {
+      let resp = await axios.post(`${API}/users/create`, {
         username: cred.username,
         password: cred.password
       });
