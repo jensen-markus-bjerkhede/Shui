@@ -1,6 +1,6 @@
 <template>
   <header>
-      <img src="@/assets/logo.png" alt="logo">
+      <img src="@/assets/logo.svg" alt="logo">
       <p>LCKD</p>
   </header>
 </template>

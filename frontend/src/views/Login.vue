@@ -1,6 +1,6 @@
 <template>
   <main id="login">
-      <img src="@/assets/logo.png" alt="LCKD logo">
+      <img src="@/assets/logo.svg" alt="LCKD logo">
       <h1>SHUI</h1>
       <h2>FLOW FREELY</h2>
       <section>
@@ -9,13 +9,15 @@
           <label for="password">Password</label>
           <input type="password" name="password" v-model="password">
           <a href="#" class="btn" @click.prevent="login">Logga in</a>
-          <img class="bottom" src="@/assets/Frame 1.png" alt="LCKD logo">
+          <Waves/>
       </section>
   </main>
 </template>
 
 <script>
+import Waves from '../components/Waves.vue'
 export default {
+    components: {  Waves },
     name: 'Login',
     data(){
         return {
@@ -73,4 +75,10 @@ export default {
 .bottom {
         width: 100%;
     }
+    .waves {
+  padding: 0;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
 </style>

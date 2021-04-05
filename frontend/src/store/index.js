@@ -14,14 +14,14 @@ export default new Vuex.Store({
     passwords: []
   },
   mutations: {
-    setTokenAndKey(state, tokenAndKey){
+    setTokenAndKey(state, tokenAndKey) {
       state.token = tokenAndKey.token;
       state.userkey = tokenAndKey.userkey;
     },
-    setLckd(state, passwords){
+    setLckd(state, passwords) {
       state.passwords = passwords;
     },
-    setPlainView(state, plainView){
+    setPlainView(state, plainView) {
       state.plainView = plainView;
     }
   },
@@ -48,10 +48,19 @@ export default new Vuex.Store({
         password: cred.password
       });
 
-
-      // Route to /login
       router.push('/login')
 
+    },
+    async createMessage(ctx, cred) {
+
+      let resp = await axios.post(`${API}/messages/create`, {
+        name: req.body.name,
+        content: req.body.content,
+        stream: req.body.stream,
+        uuid: user.uuid
+      });
+
+      router.push('/stream')
     },
   },
   modules: {

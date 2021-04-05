@@ -5,6 +5,12 @@
       "username": "Markus",
       "password": "$2b$10$pcc7RDTi2145.k3kD3AeHuna3I2e1wWfxb0wJKIKgWDbSnhMBb6kK",
       "userkey": "U2FsdGVkX1/hqL3pFvc9XvR9En/cZyTZJjsau/XnV3Y="
+    },
+    {
+      "uuid": "hipvLqf9lv",
+      "username": "Markus5435",
+      "password": "$2b$10$E.ndC522.gBU./E7HOTT5e0DtcHRUUr3nVrcr7BHSeCAMwveT/xfm",
+      "userkey": "U2FsdGVkX18JqDGGrk3ayB0nCGj4c5mjQFlmkomHjwU="
     }
   ],
   "streams": [

@@ -56,5 +56,25 @@ router.get('/list', async (req, res) => {
         res.status(400).send(err)
     }
 })
+router.post('/remove', async (req, res) => {
+
+    const token = req.headers['authorization'].split(' ')[1];
+    
+    try {
+       
+        const verified_user = jwt.verify(token, process.env.JWT_KEY);
+
+        let user = db
+        .get('content')
+        .remove({ content: verified_user.content })
+        .write();
+
+        res.status(201).send('message removed.');
+
+    } catch(err) {
+        console.error(err)
+        res.status(400).send(err)
+    }
+})
 
 module.exports = router;
