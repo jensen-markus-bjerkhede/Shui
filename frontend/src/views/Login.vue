@@ -75,10 +75,4 @@ export default {
 .bottom {
         width: 100%;
     }
-    .waves {
-  padding: 0;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
 </style>

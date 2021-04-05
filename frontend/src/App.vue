@@ -6,12 +6,7 @@
 
 <style lang="scss">
   @import '@/scss/main';
-  .waves {
-  padding: 0;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-}
+  
 
 .center-flexbox {
   display: flex;
