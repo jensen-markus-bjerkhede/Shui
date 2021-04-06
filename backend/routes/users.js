@@ -10,10 +10,10 @@ const router = new Router();
 router.post('/create', async (req, res) => {
 
     let user = db
-    .get('users')
-    .find({username: req.body.username})
-    .value()
-    if(user) {
+        .get('users')
+        .find({ username: req.body.username })
+        .value()
+    if (user) {
         return res.status(409).send('User already exist')
     }
     if (req.body.username && req.body.password) {
@@ -42,20 +42,30 @@ router.post('/create', async (req, res) => {
 router.post('/remove', async (req, res) => {
 
     const token = req.headers['authorization'].split(' ')[1];
-    
+
     try {
-       
+
         const verified_user = jwt.verify(token, process.env.JWT_KEY);
 
-        let user = db
-        .get('users')
-        .remove({ uuid: verified_user.uuid })
-        .write();
+        let messages = db.get('messages')
+            .filter({ uuid: verified_user.uuid })
+            .value()
+
+        messages.forEach(item => {
+            db.get('messages')
+                .find({ id: item.id })
+                .assign({ name: 'Anonymous' })
+                .write()
+        });
+
+        db
+            .get('users')
+            .remove({ uuid: verified_user.uuid })
+            .write();
 
         res.status(201).send('User removed.');
 
-    } catch(err) {
-        // catch error
+    } catch (err) {
         console.error(err)
         res.status(400).send(err)
     }

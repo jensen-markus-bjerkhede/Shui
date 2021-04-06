@@ -6,7 +6,7 @@ import CryptoJS from 'crypto-js';
 
 Vue.use(Vuex)
 
-const API = 'http://localhost:3000';
+const API = 'http://localhost:3000/v2';
 
 export default new Vuex.Store({
   state: {
@@ -51,13 +51,21 @@ export default new Vuex.Store({
       router.push('/login')
 
     },
-    async createMessage(ctx, cred) {
+    async createMessage(ctx, message) {
+      const bearerToken = 'Bearer ' + sessionStorage.getItem('token')
+      const options = {
+        method: 'POST',
+        url: `${API}/messages/create`,
+        headers: {
+          Authorization: bearerToken
+        },
+        data: { name: message.name, content: message.content, stream: message.stream }
+      };
 
-      let resp = await axios.post(`${API}/messages/create`, {
-        name: req.body.name,
-        content: req.body.content,
-        stream: req.body.stream,
-        uuid: user.uuid
+      axios.request(options).then((response) => {
+        console.log(response.data);
+      }).catch((error) => {
+        console.error(error);
       });
 
       router.push('/stream')
