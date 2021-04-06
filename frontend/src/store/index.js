@@ -53,16 +53,19 @@ export default new Vuex.Store({
     },
     async createMessage(ctx, message) {
       const bearerToken = 'Bearer ' + sessionStorage.getItem('token')
-      const options = {
+
+      let encryptedMessage = CryptoJS.AES.encrypt(message.content, sessionStorage.getItem('userkey')).toString();
+
+      const request = {
         method: 'POST',
         url: `${API}/messages/create`,
         headers: {
           Authorization: bearerToken
         },
-        data: { name: message.name, content: message.content, stream: message.stream }
+        data: { name: message.name, content: encryptedMessage, stream: message.stream }
       };
 
-      axios.request(options).then((response) => {
+      axios.request(request).then((response) => {
         console.log(response.data);
       }).catch((error) => {
         console.error(error);

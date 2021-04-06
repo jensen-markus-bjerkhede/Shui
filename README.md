@@ -1,4 +1,4 @@
-# lckd
+# Shui
 
 ## Project setup
 ```
