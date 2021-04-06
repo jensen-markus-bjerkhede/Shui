@@ -20,16 +20,18 @@
   ],
   "messages": [
     {
-      "name": "Markus",
-      "content": "6456ghfghfdghfgdh fgdhfdg",
+      "id": "rlQDVjxYY",
+      "name": "Anonymous",
+      "content": "This is a secret message",
       "stream": "Markus",
-      "uuid": "kqqVzEfHHn"
+      "uuid": "Ih01cBY4uP"
     },
     {
-      "name": "Markus",
-      "content": "ertrhydfhdfghfdghdfghdfg",
+      "id": "j5Qlf4E9t",
+      "name": "Anonymous",
+      "content": "This is a secret message",
       "stream": "Markus",
-      "uuid": "kqqVzEfHHn"
+      "uuid": "Ih01cBY4uP"
     }
   ]
 }
