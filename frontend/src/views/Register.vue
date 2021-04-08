@@ -9,7 +9,7 @@
           <label for="password">Password</label>
           <input type="password" name="password" v-model="password">
           <a href="#" class="btn" @click.prevent="register">Registrera</a>
-          <img class="bottom" src="@/assets/waves.svg" alt="LCKD logo">
+          <img class="bottom" src="@/assets/waves.svg" alt="Shui logo">
       </section>
   </main>
 </template>

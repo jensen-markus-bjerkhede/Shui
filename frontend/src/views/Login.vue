@@ -1,17 +1,17 @@
 <template>
-  <main id="login">
-      <img src="@/assets/logo.svg" alt="LCKD logo">
+      <section id="login">
+       <img src="@/assets/logo.svg" alt="Shiu logo">
       <h1>SHUI</h1>
       <h2>FLOW FREELY</h2>
-      <section>
+      <section class="padding">
           <label for="username">Username</label>
           <input type="text" name="username" v-model="username">
           <label for="password">Password</label>
           <input type="password" name="password" v-model="password">
-          <a href="#" class="btn" @click.prevent="login">Logga in</a>
-          <Waves/>
+          <a href="#" class="btn" @click.prevent="login">Logga in</a>   
       </section>
-  </main>
+      <Waves class="footer"/>
+      </section> 
 </template>
 
 <script>
@@ -38,7 +38,6 @@ export default {
 
 #login {
     height: 100vh;
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,7 +46,9 @@ export default {
     > img {
         margin-top: auto;
     }
-
+.padding {
+    padding: 2rem;
+}
     h1 {
         font-size: 3rem;
         color: white;
@@ -72,7 +73,7 @@ export default {
     }
     
 }
-.bottom {
-        width: 100%;
-    }
+.footer {
+    width: 100%
+}
 </style>

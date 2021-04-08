@@ -1,7 +1,7 @@
 <template>
   <header>
     <img src="@/assets/logo.svg" alt="logo" />
-    <p>LCKD</p>
+    <p>Shui</p>
   </header>
 </template>
 

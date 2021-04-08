@@ -5,18 +5,18 @@
       <router-link to="/register">Create Account</router-link>
       <router-link to="/sign-in">Sign-in</router-link>
     </nav>
-    <WavesFooter/>
+    <waves/>
   </div>
 </template>
 
 <script>
-import WavesFooter from "@/components/Waves.vue"
-import ShuiBanner from "@/components/ShuiBanner.vue"
+// import ShuiBanner from "@/components/ShuiBanner.vue"
+import Waves from '../components/Waves.vue'
 
 export default {
-  name: 'Home',
+  name: 'Landing',
   components: {
-    WavesFooter,
+    Waves,
     ShuiBanner
   }
 }

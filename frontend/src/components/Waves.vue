@@ -1,5 +1,5 @@
 <template>
-      <img class="waves" src="@/assets/waves.svg" alt="Missing footer">
+      <img src="@/assets/waves.svg" alt="Missing footer">
 </template>
 
 <script>
