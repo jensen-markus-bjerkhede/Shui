@@ -6,19 +6,18 @@ import CryptoJS from 'crypto-js';
 
 Vue.use(Vuex)
 
-const API = 'http://localhost:3000/v2';
+const API = 'http://localhost:3000';
 
 export default new Vuex.Store({
   state: {
-    plainView: Object,
-    passwords: []
+    streams: Array
   },
   mutations: {
     setTokenAndKey(state, tokenAndKey) {
       state.token = tokenAndKey.token;
       state.userkey = tokenAndKey.userkey;
     },
-    setLckd(state, passwords) {
+    setShui(state, passwords) {
       state.passwords = passwords;
     },
     setPlainView(state, plainView) {
@@ -37,7 +36,6 @@ export default new Vuex.Store({
       sessionStorage.setItem('token', resp.data.token);
       sessionStorage.setItem('userkey', resp.data.userkey);
 
-      // Route to /passwords
       router.push('/passwords')
 
     },
@@ -72,6 +70,34 @@ export default new Vuex.Store({
       });
 
       router.push('/stream')
+    },
+    async fetchStreams(ctx) {
+      try {
+        const streams = await axios.get(`${ctx.state.API}/streams`, {
+          headers: {
+            authorization: bearerToken
+          }
+        })
+        ctx.commit('streams', streams.data);
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async createdStream(ctx, newStream) {
+      const createdStream = await axios.post(
+        `${ctx.state.API}/streams`,
+        {
+          data: newStream.data,
+          hashtags: newStream.hashtags,
+        },
+        {
+          headers: {
+            authorization: bearerToken
+          },
+        }
+      );
+      router.push('/stream')
+      console.log("newStream", createdStream);
     },
   },
   modules: {

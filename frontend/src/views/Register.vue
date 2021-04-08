@@ -1,6 +1,6 @@
 <template>
   <main id="register">
-      <img src="@/assets/logo.svg" alt="LCKD logo">
+      <img src="@/assets/logo.svg" alt="Shui logo">
       <h1>SHUI</h1>
       <h2>FLOW FREELY</h2>
       <section>
