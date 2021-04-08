@@ -17,6 +17,12 @@
       "username": "dasdasdasdsad",
       "password": "$2b$10$PP3tSMHTbFqYQEGI7y6g0Ovbqh7x9527ShW956Jc1ih6ajCREVP7K",
       "userkey": "U2FsdGVkX1+XByrSn/KMwdjW69ISUpYfyJtcfPSfaF4="
+    },
+    {
+      "uuid": "i3QOa0m3MV",
+      "username": "markus_bjerkhede_92@hotmail.com",
+      "password": "$2b$10$kR2cWHbFYnHzzpWqNf0wSu7TGX5MWnxyIDDtjdqlGU0h.qgj2nxde",
+      "userkey": "U2FsdGVkX1/sQ3z+BWJJKClUQawJnA1/f/+pVPlG0XY="
     }
   ],
   "streams": [
@@ -25,40 +31,5 @@
     }
   ],
   "messages": [
-    {
-      "id": "eyQ-rBc4_",
-      "name": "Markus",
-      "content": "U2FsdGVkX197aegxnqSjNORb6ZqlsmWzP+pZ1QNbw7c=",
-      "stream": "Markus",
-      "uuid": "kqqVzEfHHn"
-    },
-    {
-      "id": "fJp9GlJBV",
-      "name": "Markus",
-      "content": "U2FsdGVkX1814mOk+jCqp15WQs492pTbkIeq6ayI/JY=",
-      "stream": "Markus",
-      "uuid": "kqqVzEfHHn"
-    },
-    {
-      "id": "i1kSC_gPP",
-      "name": "Markus",
-      "content": "U2FsdGVkX199YPCDE0WgZs1NrLAE5/7b/Zt+wo2Ctz0=",
-      "stream": "Markus",
-      "uuid": "kqqVzEfHHn"
-    },
-    {
-      "id": "BpdkvFjD5",
-      "name": "Markus",
-      "content": "U2FsdGVkX1+IbwVAoa6p3fyTco4daxum7FsseWBlHqM=",
-      "stream": "Markus",
-      "uuid": "kqqVzEfHHn"
-    },
-    {
-      "id": "4hWVnHG-0",
-      "name": "Markus",
-      "content": "U2FsdGVkX1/vivdqS6m9hBLIRc5A+UqB+hSY9rXRu64=",
-      "stream": "Markus",
-      "uuid": "kqqVzEfHHn"
-    }
   ]
 }

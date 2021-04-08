@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import WavesFooter from "@/components/Waves.vue"
 import ShuiBanner from "@/components/ShuiBanner.vue"
 
