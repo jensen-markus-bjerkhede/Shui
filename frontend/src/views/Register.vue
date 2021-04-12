@@ -1,33 +1,33 @@
 <template>
   <main id="register">
-      <img src="@/assets/logo.svg" alt="Shui logo">
-      <h1>SHUI</h1>
-      <h2>FLOW FREELY</h2>
-      <section>
-          <label for="username">Username</label>
-          <input type="text" name="username" v-model="username">
-          <label for="password">Password</label>
-          <input type="password" name="password" v-model="password">
-          <a href="#" class="btn" @click.prevent="register">Registrera</a>
-          <img class="bottom" src="@/assets/waves.svg" alt="Shui logo">
-      </section>
+    <img src="@/assets/logo.svg" alt="Shui logo">
+    <h1>SHUI</h1>
+    <h2>FLOW FREELY</h2>
+    <section>
+      <label for="username">Username</label>
+      <input id="username" type="text" name="username" v-model="username">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" v-model="password">
+      <a href="#" class="btn" @click.prevent="register">Registrera</a>
+      <img class="bottom" src="@/assets/waves.svg" alt="Shui logo">
+    </section>
   </main>
 </template>
 
 <script>
 export default {
-    name: 'Register',
-    data(){
-        return {
-            username: '',
-            password: ''
-        }
-    },
-    methods: {
-        register(){
-            this.$store.dispatch('register', { username: this.username, password: this.password })
-        }
+  name: 'Register',
+  data(){
+    return {
+      username: '',
+      password: ''
     }
+  },
+  methods: {
+    register(){
+      this.$store.dispatch('register', { username: this.username, password: this.password })
+    }
+  }
 }
 </script>
 
@@ -35,38 +35,38 @@ export default {
 @import './../scss/variables';
 
 #register {
-    height: 100vh;
-    padding: 2rem;
+  height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > img {
+    margin-top: auto;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: white;
+    margin: .5rem 0;
+  }
+
+  h2 {
+    margin: 0;
+    color: $yellow;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    max-width: 16rem;
+    text-align: center;
+  }
+
+  section {
+    width: 100%;
+    margin-top: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    > img {
-        margin-top: auto;
-    }
-
-    h1 {
-        font-size: 3rem;
-        color: white;
-        margin: .5rem 0;
-    }
-
-    h2 {
-        margin: 0;
-        color: $yellow;
-        font-size: 1.3rem;
-        text-transform: uppercase;
-        max-width: 16rem;
-        text-align: center;
-    }
-
-    section {
-        width: 100%;
-        margin-top: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    align-items: flex-start;
+  }
 }
 </style>

@@ -17,7 +17,7 @@ router.post('/create', async (req, res) => {
             .get('users')
             .find({ uuid: verified_user.uuid })
             .value();
-        
+
         const userKeyBytes = CryptoJS.AES.decrypt(user.userkey, process.env.SECRET);
         const decryptedUserKey = userKeyBytes.toString(CryptoJS.enc.Utf8);
 
@@ -28,7 +28,7 @@ router.post('/create', async (req, res) => {
             id: shortId.generate(),
             name: req.body.name,
             content: CryptoJS.AES.encrypt(decryptedMessage, process.env.SECRET).toString(),
-            stream: req.body.stream,
+            streams: req.body.streams,
             uuid: user.uuid
         }
         db.get('messages')
@@ -46,18 +46,28 @@ router.get('/list', async (req, res) => {
     try {
         const token = req.headers['authorization'].split(' ')[1];
 
-        let verifiedUser = jwt.verify(token, process.env.JWT_KEY);
+        const verifiedUser = jwt.verify(token, process.env.JWT_KEY);
 
-        let user = db
+        const user = db
             .get('users')
             .find({ uuid: verifiedUser.uuid })
             .value()
 
-        let messages = db.get('messages')
-            .filter({ stream: req.query.stream })
+        const messages = db.get('messages')
             .value()
 
-        let returnMessages = messages.map(({ uuid, ...remainingAttrs }) => remainingAttrs)
+        const filteredMessages = [];
+        let streams = req.query.streams.split(",");
+        console.log("streams", streams[0])
+
+        messages.forEach((message) => {
+            if (message.streams.some(r => streams.includes(r))) {
+                filteredMessages.push(message)
+            }
+        })
+
+        let returnMessages = filteredMessages.map(({ uuid, ...remainingAttrs }) => remainingAttrs)
+
         returnMessages.forEach(message => {
 
             const messageBytes = CryptoJS.AES.decrypt(message.content, process.env.SECRET);
@@ -68,7 +78,7 @@ router.get('/list', async (req, res) => {
 
             message.content = CryptoJS.AES.encrypt(decryptedMessage, decryptedUserKey).toString();
         });
-
+        console.log("Messages", returnMessages.length)
         return res.status(200).send(returnMessages);
 
     } catch (err) {
@@ -76,5 +86,9 @@ router.get('/list', async (req, res) => {
         res.status(400).send(err)
     }
 });
+
+function hasAny(messagesStreams, streams) {
+    return messagesStreams.some(r=> streams.includes(r))
+}
 
 module.exports = router;

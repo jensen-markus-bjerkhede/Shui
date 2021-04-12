@@ -23,13 +23,60 @@
       "username": "markus_bjerkhede_92@hotmail.com",
       "password": "$2b$10$kR2cWHbFYnHzzpWqNf0wSu7TGX5MWnxyIDDtjdqlGU0h.qgj2nxde",
       "userkey": "U2FsdGVkX1/sQ3z+BWJJKClUQawJnA1/f/+pVPlG0XY="
+    },
+    {
+      "uuid": "pLNqsFNOAY",
+      "username": "Mathias",
+      "password": "$2b$10$AEcp8zfuTwSkKmP5Xm7LbukgUqWhQ4INzWYERdmeGgyRd5hWlnv7.",
+      "userkey": "U2FsdGVkX18tOG6OqjoemazlPltSlt7QTT8YA8mEpmo="
     }
   ],
   "streams": [
     {
       "name": "Markus"
+    },
+    {
+      "name": "test"
+    },
+    {
+      "name": "new Stream"
+    },
+    {
+      "name": "new Stream 2"
+    },
+    {
+      "name": "new Stream 3"
     }
   ],
   "messages": [
+    {
+      "id": "4Zv9HGpnF",
+      "name": "Mathias",
+      "content": "U2FsdGVkX1/SKnuuXNCVXIWsqaOmbvyroGd0TYPTATw=",
+      "streams": [
+        "Markus",
+        "Mathias"
+      ],
+      "uuid": "pLNqsFNOAY"
+    },
+    {
+      "id": "dyzuaphfT",
+      "name": "Mathias",
+      "content": "U2FsdGVkX1+rlRb3Xg6a9RPLYOuWPNdgz9zSmGvVsYo=",
+      "streams": [
+        "Markus",
+        "Mathias"
+      ],
+      "uuid": "pLNqsFNOAY"
+    },
+    {
+      "id": "wvpk2JSDP",
+      "name": "Mathias",
+      "content": "U2FsdGVkX18N8BLRPsc9e+1Osy+ZLTb0AXWT9dreoSk=",
+      "streams": [
+        "sdfsd"
+      ],
+      "uuid": "pLNqsFNOAY"
+    }
   ]
 }

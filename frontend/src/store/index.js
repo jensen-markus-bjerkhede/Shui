@@ -8,96 +8,143 @@ Vue.use(Vuex)
 
 const API = 'http://localhost:3000';
 
+function getBearerToken() {
+  return 'Bearer ' + sessionStorage.getItem('token')
+}
+
 export default new Vuex.Store({
   state: {
-    streams: Array
+    streams: []
   },
   mutations: {
-    setTokenAndKey(state, tokenAndKey) {
-      state.token = tokenAndKey.token;
-      state.userkey = tokenAndKey.userkey;
+    updateStreams(state, streams) {
+      console.log("update", streams)
+      state.streams = streams;
     },
-    setShui(state, passwords) {
-      state.passwords = passwords;
-    },
-    setPlainView(state, plainView) {
-      state.plainView = plainView;
+    hideStream(state, stream) {
+      const index = state.streams.indexOf(stream);
+      if (index > -1) {
+        state.streams.splice(index, 1);
+      }
     }
   },
   actions: {
-    async login(ctx, cred) {
+    async login(ctx, credentials) {
 
-      let resp = await axios.post(`${API}/auth/login`, {
-        username: cred.username,
-        password: cred.password
+      const loginRequest = {
+        method: 'POST',
+        url: `${API}/auth/login`,
+        headers: {'Content-Type': 'application/json'},
+        data: {username: credentials.username, password: credentials.password}
+      };
+
+      return new Promise(async (resolve, reject) => {
+        axios.request(loginRequest).then((response) => {
+          sessionStorage.setItem('token', response.data.token);
+          sessionStorage.setItem('userkey', response.data.userkey);
+          resolve();
+        }).catch((error) => {
+          reject(error);
+        });
       });
-
-      // Session Storage
-      sessionStorage.setItem('token', resp.data.token);
-      sessionStorage.setItem('userkey', resp.data.userkey);
-
-      router.push('/passwords')
-
     },
-    async register(ctx, cred) {
+    async register(ctx, credentials) {
 
-      let resp = await axios.post(`${API}/users/create`, {
-        username: cred.username,
-        password: cred.password
+      const createUserRequest = {
+        method: 'POST',
+        url: `${API}/users/create`,
+        headers: {'Content-Type': 'application/json'},
+        data: {username: credentials.username, password: credentials.password}
+      };
+
+      axios.request(createUserRequest).then(() => {
+        router.push('/login')
+      }).catch((error) => {
+        console.error(error);
       });
-
-      router.push('/login')
-
     },
     async createMessage(ctx, message) {
-      const bearerToken = 'Bearer ' + sessionStorage.getItem('token')
-
       let encryptedMessage = CryptoJS.AES.encrypt(message.content, sessionStorage.getItem('userkey')).toString();
 
-      const request = {
+      const createMessageRequest = {
         method: 'POST',
         url: `${API}/messages/create`,
         headers: {
-          Authorization: bearerToken
+          Authorization: getBearerToken()
         },
-        data: { name: message.name, content: encryptedMessage, stream: message.stream }
+        data: { name: message.name, content: encryptedMessage, stream: message.streams }
       };
 
-      axios.request(request).then((response) => {
-        console.log(response.data);
+      axios.request(createMessageRequest).then((response) => {
+        return response;
+      }).catch((error) => {
+        console.error(error);
+      });
+    },
+
+    async fetchMessages(store) {
+
+      const getMessagesRequest = {
+        method: 'GET',
+        url: `${API}/messages/list`,
+        params: {streams: store.getters.getStreamsString()},
+        headers: {
+          Authorization: getBearerToken()
+        }
+      };
+
+      return new Promise(async (resolve, reject) => {
+        axios.request(getMessagesRequest).then((response) => {
+          console.log("data", response)
+          resolve(response.data)
+        }).catch((error) => {
+          reject(error)
+        });
+      });
+    },
+    async fetchStreams(ctx) {
+      const getStreamsRequest = {
+        method: 'GET',
+        url: `${API}/streams/list`,
+        headers: {
+          Authorization: getBearerToken()
+        }
+      };
+
+      return new Promise(async (resolve, reject) => {
+        axios.request(getStreamsRequest).then((response) => {
+          resolve(response);
+        }).catch((error) => {
+          reject(error);
+        });
+      });
+    },
+    async createStream(ctx, streamName) {
+      const createStreamRequest = {
+        method: 'POST',
+        url: `${API}/streams/create`,
+        headers: {
+          Authorization: getBearerToken(),
+          'Content-Type': 'application/json'
+        },
+        data: {name: streamName}
+      };
+
+      axios.request(createStreamRequest).then((response) => {
+        ctx.state.streams.push(response)
       }).catch((error) => {
         console.error(error);
       });
 
-      router.push('/stream')
     },
-    async fetchStreams(ctx) {
-      try {
-        const streams = await axios.get(`${ctx.state.API}/streams`, {
-          headers: {
-            authorization: bearerToken
-          }
-        })
-        ctx.commit('streams', streams.data);
-      } catch (err) {
-        console.log(err)
-      }
+    async hideStream(ctx, stream) {
+
+
     },
-    async createdStream(ctx, newStream) {
-      const createdStream = await axios.post(
-        `${ctx.state.API}/streams`,
-        {
-          data: newStream.data,
-          hashtags: newStream.hashtags,
-        },
-        {
-          headers: {
-            authorization: bearerToken
-          },
-        }
-      );
-      router.push('/stream')
-      console.log("newStream", createdStream);
+  },
+  getters: {
+    getStreamsString(state) {
+      return state.streams.join();
     },
   },
   modules: {

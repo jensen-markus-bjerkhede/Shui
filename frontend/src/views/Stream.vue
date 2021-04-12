@@ -1,15 +1,79 @@
+<template>
+  <section id="stream">
+    <p>HEJ</p>
+    <section v-for="message in messages" :key="message.id">
+      <Message :streams="message.streams" :content="message.content" :name="message.name" />
+    </section>
+    <Message />
+  </section>
+</template>
 
-    computed: {
-     getStreams() {
-        return this.$store.state.streams;
-      }
-    },
-    beforeMount(){
-      this.$store.dispatch('fetchStreams')
-    },
-    methods: {
-      goTo() {
-        this.$router.push('/stream')
-      }
+<script>
+import Message from "../components/Message";
+
+export default {
+  components: { Message },
+  name: 'Stream',
+  data(){
+    return {
+      messages: Array
     }
+  },
+  beforeMount() {
+    this.$store.dispatch('fetchMessages').then((messages) => {
+      this.messages = messages;
+      console.log("sadfdsfdsfsdfsddsfdsfsdfsdsdsdf",messages)
+    }, (e) => {
+      console.log(e.message)
+    })
+  },
+  methods: {
+
+  }
 }
+</script>
+
+<style lang="scss">
+@import './../scss/variables';
+
+#login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > img {
+    margin-top: auto;
+  }
+  .padding {
+    padding: 2rem;
+  }
+  h1 {
+    font-size: 3rem;
+    color: white;
+    margin: .5rem 0;
+  }
+
+  h2 {
+    margin: 0;
+    color: $yellow;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    max-width: 16rem;
+    text-align: center;
+  }
+
+  section {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+.footer {
+  width: 100%
+}
+</style>

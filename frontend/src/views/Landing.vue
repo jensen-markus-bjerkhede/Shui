@@ -1,6 +1,5 @@
 <template>
   <div id="Landing" class="center-flexbox">
-    <ShuiBanner/>
     <nav>
       <router-link to="/register">Create Account</router-link>
       <router-link to="/sign-in">Sign-in</router-link>
@@ -17,7 +16,6 @@ export default {
   name: 'Landing',
   components: {
     Waves,
-    ShuiBanner
   }
 }
 </script>
