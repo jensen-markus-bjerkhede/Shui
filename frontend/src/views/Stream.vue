@@ -2,7 +2,11 @@
   <section id="stream">
     <p>HEJ</p>
     <section v-for="message in messages" :key="message.id">
-      <Message :streams="message.streams" :content="message.content" :name="message.name" />
+      <Message
+        :streams="message.streams"
+        :content="message.content"
+        :name="message.name"
+      />
     </section>
     <Message />
   </section>
@@ -13,28 +17,29 @@ import Message from "../components/Message";
 
 export default {
   components: { Message },
-  name: 'Stream',
-  data(){
+  name: "Stream",
+  data() {
     return {
-      messages: Array
-    }
+      messages: Array,
+    };
   },
   beforeMount() {
-    this.$store.dispatch('fetchMessages').then((messages) => {
-      this.messages = messages;
-      console.log("sadfdsfdsfsdfsddsfdsfsdfsdsdsdf",messages)
-    }, (e) => {
-      console.log(e.message)
-    })
+    this.$store.dispatch("fetchMessages").then(
+      (messages) => {
+        this.messages = messages;
+        console.log("sadfdsfdsfsdfsddsfdsfsdfsdsdsdf", messages);
+      },
+      (e) => {
+        console.log(e.message);
+      }
+    );
   },
-  methods: {
-
-  }
-}
+  methods: {},
+};
 </script>
 
 <style lang="scss">
-@import './../scss/variables';
+@import "./../scss/variables";
 
 #login {
   height: 100vh;
@@ -52,7 +57,7 @@ export default {
   h1 {
     font-size: 3rem;
     color: white;
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
 
   h2 {
@@ -71,9 +76,8 @@ export default {
     flex-direction: column;
     align-items: flex-start;
   }
-
 }
 .footer {
-  width: 100%
+  width: 100%;
 }
 </style>

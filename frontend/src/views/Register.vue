@@ -1,42 +1,46 @@
 <template>
   <main id="register">
-    <img src="@/assets/logo.svg" alt="Shui logo">
+    <img src="@/assets/logo.svg" alt="Shui logo" />
     <h1>SHUI</h1>
     <h2>FLOW FREELY</h2>
     <section>
       <label for="username">Username</label>
-      <input id="username" type="text" name="username" v-model="username">
+      <input id="username" type="text" name="username" v-model="username" />
       <label for="password">Password</label>
-      <input id="password" type="password" name="password" v-model="password">
+      <input id="password" type="password" name="password" v-model="password" />
       <a href="#" class="btn" @click.prevent="register">Registrera</a>
-      <img class="bottom" src="@/assets/waves.svg" alt="Shui logo">
     </section>
+    <Waves class="footer" />
   </main>
 </template>
 
 <script>
+import Waves from "../components/Waves.vue";
 export default {
-  name: 'Register',
-  data(){
+  components: { Waves },
+  name: "Register",
+  data() {
     return {
-      username: '',
-      password: ''
-    }
+      username: "",
+      password: "",
+    };
   },
   methods: {
-    register(){
-      this.$store.dispatch('register', { username: this.username, password: this.password })
-    }
-  }
-}
+    register() {
+      this.$store.dispatch("register", {
+        username: this.username,
+        password: this.password,
+      });
+    },
+  },
+};
 </script>
 
 <style lang="scss">
-@import './../scss/variables';
+@import "./../scss/variables";
 
 #register {
   height: 100vh;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,7 +53,7 @@ export default {
   h1 {
     font-size: 3rem;
     color: white;
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
 
   h2 {
@@ -62,11 +66,15 @@ export default {
   }
 
   section {
+    padding: 2rem;
     width: 100%;
     margin-top: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+  .footer {
+    width: 100%;
   }
 }
 </style>

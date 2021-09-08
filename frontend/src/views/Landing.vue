@@ -2,20 +2,20 @@
   <div id="Landing" class="center-flexbox">
     <nav>
       <router-link to="/register">Create Account</router-link>
-      <router-link to="/sign-in">Sign-in</router-link>
+      <router-link to="/login">Sign-in</router-link>
     </nav>
-    <waves/>
+    <waves />
   </div>
 </template>
 
 <script>
 // import ShuiBanner from "@/components/ShuiBanner.vue"
-import Waves from '../components/Waves.vue'
+import Waves from "../components/Waves.vue";
 
 export default {
-  name: 'Landing',
+  name: "Landing",
   components: {
     Waves,
-  }
-}
+  },
+};
 </script>

@@ -29,6 +29,12 @@
       "username": "Mathias",
       "password": "$2b$10$AEcp8zfuTwSkKmP5Xm7LbukgUqWhQ4INzWYERdmeGgyRd5hWlnv7.",
       "userkey": "U2FsdGVkX18tOG6OqjoemazlPltSlt7QTT8YA8mEpmo="
+    },
+    {
+      "uuid": "vGdXIBMZfK",
+      "username": "admin",
+      "password": "$2b$10$qyWYdmFqvtqH9MzViz/5M.AnsW6p0sO3/uSU37lLEEIsHHZ3haLjK",
+      "userkey": "U2FsdGVkX1/SIpypsBCTqznvrGcoqAc4m1NtB5WwQvI="
     }
   ],
   "streams": [
