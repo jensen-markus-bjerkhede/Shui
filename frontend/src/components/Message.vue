@@ -1,9 +1,9 @@
 <template>
   <section v-if="streams">
-    <p>{{name}}}</p>
-    <p>{{content}}}</p>
-    <p>{{getStreamsString()}}</p>
-    <p>{{name}}}</p>
+    <p>{{ name }}}</p>
+    <p>{{ content }}}</p>
+    <p>{{ getStreamsString() }}</p>
+    <p>{{ name }}}</p>
   </section>
 </template>
 
@@ -16,9 +16,7 @@ export default {
     streams: Array,
   },
   data() {
-    return {
-
-    };
+    return {};
   },
   methods: {
     createMessage() {
@@ -29,12 +27,12 @@ export default {
       });
     },
     getStreamsString() {
-      let streamsString = '';
+      let streamsString = "";
       this.streams.forEach((stream) => {
-        streamsString += '#' + stream + ' ';
-      })
+        streamsString += "#" + stream + " ";
+      });
       return streamsString;
-    }
+    },
   },
 };
 </script>
