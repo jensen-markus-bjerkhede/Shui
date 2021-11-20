@@ -34,8 +34,8 @@ export default new Vuex.Store({
       const loginRequest = {
         method: 'POST',
         url: `${API}/auth/login`,
-        headers: {'Content-Type': 'application/json'},
-        data: {username: credentials.username, password: credentials.password}
+        headers: { 'Content-Type': 'application/json' },
+        data: { username: credentials.username, password: credentials.password }
       };
 
       return new Promise(async (resolve, reject) => {
@@ -53,8 +53,8 @@ export default new Vuex.Store({
       const createUserRequest = {
         method: 'POST',
         url: `${API}/users/create`,
-        headers: {'Content-Type': 'application/json'},
-        data: {username: credentials.username, password: credentials.password}
+        headers: { 'Content-Type': 'application/json' },
+        data: { username: credentials.username, password: credentials.password }
       };
 
       axios.request(createUserRequest).then(() => {
@@ -87,7 +87,7 @@ export default new Vuex.Store({
       const getMessagesRequest = {
         method: 'GET',
         url: `${API}/messages/list`,
-        params: {streams: store.getters.getStreamsString()},
+        params: { streams: store.getters.getStreamsString() },
         headers: {
           Authorization: getBearerToken()
         }
@@ -127,7 +127,7 @@ export default new Vuex.Store({
           Authorization: getBearerToken(),
           'Content-Type': 'application/json'
         },
-        data: {name: streamName}
+        data: { name: streamName }
       };
 
       axios.request(createStreamRequest).then((response) => {

@@ -41,6 +41,12 @@
       "username": "John",
       "password": "$2b$10$7f4bIKQNfgw3s8hwER6MX.SoxLMdQSQLn/YCaBS/VRRSWRlnUsR96",
       "userkey": "U2FsdGVkX19KCa6+dEHK/Lo6AzVId9OGAcx2NBv7Vjs="
+    },
+    {
+      "uuid": "vOCa5W8GGW",
+      "username": "Markus1",
+      "password": "$2b$10$QFb9Tyadgw/yW0q9e..i7uGC15yI11ujc3wcSwZtoe8XIj0dKQJ1W",
+      "userkey": "U2FsdGVkX1/+5YT8lxfyHcOBeFuLGnhnduEpBxdV+N8="
     }
   ],
   "streams": [
@@ -95,6 +101,12 @@
       "name": "Mathias",
       "content": "U2FsdGVkX1/D7F2Ibr7vJbvbHv/lVMX5GkOnr004E34=",
       "uuid": "E89vfPXb4c"
+    },
+    {
+      "id": "wUkuBtE_6",
+      "name": "asd",
+      "content": "U2FsdGVkX18ngZb48ynQnGteJZjHQnTGSFA2SKw9onM=",
+      "uuid": "vGdXIBMZfK"
     }
   ]
 }

@@ -1,9 +1,15 @@
 <template>
-  <section v-if="streams">
-    <p>{{ name }}}</p>
-    <p>{{ content }}}</p>
-    <p>{{ getStreamsString() }}</p>
-    <p>{{ name }}}</p>
+  <section>
+    <input v-model="name" type="text" />
+    <textarea v-model="content" type="text" />
+    <input v-model="streams" type="text" />
+    <button @click="createMessage()"></button>
+    <section v-if="streams">
+      <p>{{ name }}</p>
+      <p>{{ content }}</p>
+      <p>{{ getStreamsString() }}</p>
+      <p>{{ stream }}</p>
+    </section>
   </section>
 </template>
 
@@ -27,6 +33,7 @@ export default {
       });
     },
     getStreamsString() {
+      console.log(this.streams);
       let streamsString = "";
       this.streams.forEach((stream) => {
         streamsString += "#" + stream + " ";
