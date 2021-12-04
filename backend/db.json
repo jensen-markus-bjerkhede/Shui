@@ -1,52 +1,10 @@
 {
   "users": [
     {
-      "uuid": "kqqVzEfHHn",
+      "uuid": "3EEoHDHqvM",
       "username": "Markus",
-      "password": "$2b$10$pcc7RDTi2145.k3kD3AeHuna3I2e1wWfxb0wJKIKgWDbSnhMBb6kK",
-      "userkey": "U2FsdGVkX1/hqL3pFvc9XvR9En/cZyTZJjsau/XnV3Y="
-    },
-    {
-      "uuid": "hipvLqf9lv",
-      "username": "Markus5435",
-      "password": "$2b$10$E.ndC522.gBU./E7HOTT5e0DtcHRUUr3nVrcr7BHSeCAMwveT/xfm",
-      "userkey": "U2FsdGVkX18JqDGGrk3ayB0nCGj4c5mjQFlmkomHjwU="
-    },
-    {
-      "uuid": "oK9Lgc7xKE",
-      "username": "dasdasdasdsad",
-      "password": "$2b$10$PP3tSMHTbFqYQEGI7y6g0Ovbqh7x9527ShW956Jc1ih6ajCREVP7K",
-      "userkey": "U2FsdGVkX1+XByrSn/KMwdjW69ISUpYfyJtcfPSfaF4="
-    },
-    {
-      "uuid": "i3QOa0m3MV",
-      "username": "markus_bjerkhede_92@hotmail.com",
-      "password": "$2b$10$kR2cWHbFYnHzzpWqNf0wSu7TGX5MWnxyIDDtjdqlGU0h.qgj2nxde",
-      "userkey": "U2FsdGVkX1/sQ3z+BWJJKClUQawJnA1/f/+pVPlG0XY="
-    },
-    {
-      "uuid": "pLNqsFNOAY",
-      "username": "Mathias",
-      "password": "$2b$10$AEcp8zfuTwSkKmP5Xm7LbukgUqWhQ4INzWYERdmeGgyRd5hWlnv7.",
-      "userkey": "U2FsdGVkX18tOG6OqjoemazlPltSlt7QTT8YA8mEpmo="
-    },
-    {
-      "uuid": "vGdXIBMZfK",
-      "username": "admin",
-      "password": "$2b$10$qyWYdmFqvtqH9MzViz/5M.AnsW6p0sO3/uSU37lLEEIsHHZ3haLjK",
-      "userkey": "U2FsdGVkX1/SIpypsBCTqznvrGcoqAc4m1NtB5WwQvI="
-    },
-    {
-      "uuid": "E89vfPXb4c",
-      "username": "John",
-      "password": "$2b$10$7f4bIKQNfgw3s8hwER6MX.SoxLMdQSQLn/YCaBS/VRRSWRlnUsR96",
-      "userkey": "U2FsdGVkX19KCa6+dEHK/Lo6AzVId9OGAcx2NBv7Vjs="
-    },
-    {
-      "uuid": "vOCa5W8GGW",
-      "username": "Markus1",
-      "password": "$2b$10$QFb9Tyadgw/yW0q9e..i7uGC15yI11ujc3wcSwZtoe8XIj0dKQJ1W",
-      "userkey": "U2FsdGVkX1/+5YT8lxfyHcOBeFuLGnhnduEpBxdV+N8="
+      "password": "$2b$10$.aL64WELgcav7ZPUxRBOXeEAUseA1lr0zSjGjbFwofQyQ0AInj8Ny",
+      "userkey": "U2FsdGVkX1/wkFCDA3pi++gGdq36P9XUmo99r8pjX4g="
     }
   ],
   "streams": [
@@ -68,45 +26,34 @@
   ],
   "messages": [
     {
-      "id": "4Zv9HGpnF",
-      "name": "Mathias",
-      "content": "U2FsdGVkX1/SKnuuXNCVXIWsqaOmbvyroGd0TYPTATw=",
-      "streams": [
-        "Markus",
-        "Mathias"
-      ],
-      "uuid": "pLNqsFNOAY"
+      "id": "0Fpm5PoJU",
+      "name": "asdasd",
+      "content": "U2FsdGVkX1/TfoL3U8+CxNE0MvbaMCiUCG8uDZGqb2Q=",
+      "uuid": "3EEoHDHqvM"
     },
     {
-      "id": "dyzuaphfT",
-      "name": "Mathias",
-      "content": "U2FsdGVkX1+rlRb3Xg6a9RPLYOuWPNdgz9zSmGvVsYo=",
-      "streams": [
-        "Markus",
-        "Mathias"
-      ],
-      "uuid": "pLNqsFNOAY"
+      "id": "9KH9DMVaZ",
+      "name": "",
+      "content": "U2FsdGVkX1/ybocMmpIGvaARVkKChZCKC1bmecZS+sx52uYlKUFBEQjnwgZ9ba9UdHSv5y6S15YIxS2VYCZk/8fUCkhFPf5RDQ6dhxQQnzI=",
+      "uuid": "3EEoHDHqvM"
     },
     {
-      "id": "wvpk2JSDP",
-      "name": "Mathias",
-      "content": "U2FsdGVkX18N8BLRPsc9e+1Osy+ZLTb0AXWT9dreoSk=",
-      "streams": [
-        "sdfsd"
-      ],
-      "uuid": "pLNqsFNOAY"
+      "id": "ZP3t3UQYT",
+      "name": "",
+      "content": "U2FsdGVkX19Cl4u4tn+iqRpJPKL84DP008CgZKgw4mY=",
+      "uuid": "3EEoHDHqvM"
     },
     {
-      "id": "bRnM5C9S8",
-      "name": "Mathias",
-      "content": "U2FsdGVkX1/D7F2Ibr7vJbvbHv/lVMX5GkOnr004E34=",
-      "uuid": "E89vfPXb4c"
+      "id": "4MiMF4HmO",
+      "name": "",
+      "content": "U2FsdGVkX190kgoyJaYy+2N15ANE29+9SA9GvI8thYE=",
+      "uuid": "3EEoHDHqvM"
     },
     {
-      "id": "wUkuBtE_6",
-      "name": "asd",
-      "content": "U2FsdGVkX18ngZb48ynQnGteJZjHQnTGSFA2SKw9onM=",
-      "uuid": "vGdXIBMZfK"
+      "id": "xQFLBEW_P",
+      "name": "",
+      "content": "U2FsdGVkX1/mUl+2t0GVVH3AvJcE/xMRKJKVIv1gGrk=",
+      "uuid": "3EEoHDHqvM"
     }
   ]
 }

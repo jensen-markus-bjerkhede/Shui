@@ -1,19 +1,17 @@
 <template>
   <section>
-    <input v-model="name" type="text" />
-    <textarea v-model="content" type="text" />
-    <input v-model="streams" type="text" />
-    <button @click="createMessage()"></button>
     <section v-if="streams">
       <p>{{ name }}</p>
-      <p>{{ content }}</p>
+      <p>{{ getDecryptedContent(content) }}</p>
       <p>{{ getStreamsString() }}</p>
-      <p>{{ stream }}</p>
+<!--      <p>{{ stream }}</p>-->
     </section>
   </section>
 </template>
 
 <script>
+import CryptoJS from "crypto-js";
+
 export default {
   name: "Messages",
   props: {
@@ -25,20 +23,16 @@ export default {
     return {};
   },
   methods: {
-    createMessage() {
-      this.$store.dispatch("createMessage", {
-        name: this.name,
-        content: this.content,
-        stream: this.stream,
-      });
-    },
     getStreamsString() {
-      console.log(this.streams);
       let streamsString = "";
       this.streams.forEach((stream) => {
         streamsString += "#" + stream + " ";
       });
       return streamsString;
+    },
+    getDecryptedContent(content) {
+      console.log('hemligt', CryptoJS.AES.encrypt('Detta är ett hemligt meddelande', sessionStorage.getItem('userkey')).toString());
+      return CryptoJS.AES.decrypt(content, sessionStorage.getItem('userkey')).toString();
     },
   },
 };

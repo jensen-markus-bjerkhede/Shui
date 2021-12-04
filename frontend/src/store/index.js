@@ -18,8 +18,7 @@ export default new Vuex.Store({
   },
   mutations: {
     updateStreams(state, streams) {
-      console.log("update", streams)
-      state.streams = streams;
+      state.streams = streams.data;
     },
     hideStream(state, stream) {
       const index = state.streams.indexOf(stream);
@@ -83,11 +82,16 @@ export default new Vuex.Store({
     },
 
     async fetchMessages(store) {
-
+      console.log('test getyvsdfgsdf', store.state.streams)
+      let streamString = '';
+      store.state.streams.forEach(stream => {
+        streamString += stream.name + ',';
+      });
+      console.log('streamString', streamString);
       const getMessagesRequest = {
         method: 'GET',
         url: `${API}/messages/list`,
-        params: { streams: store.getters.getStreamsString() },
+        params: { streams: streamString },
         headers: {
           Authorization: getBearerToken()
         }
@@ -144,7 +148,7 @@ export default new Vuex.Store({
   },
   getters: {
     getStreamsString(state) {
-      return state.streams.join();
+      return state.streams.join(',');
     },
   },
   modules: {

@@ -1,6 +1,5 @@
 <template>
   <section id="stream">
-    <p>HEJ</p>
     <section v-for="message in messages" :key="message.id">
       <Message
         :streams="message.streams"
@@ -8,7 +7,7 @@
         :name="message.name"
       />
     </section>
-    <Message />
+    <img class="create-msg" src="../assets/create-msg.svg" @click="NewMessage()" alt="Create message">
   </section>
 </template>
 
@@ -34,7 +33,11 @@ export default {
       }
     );
   },
-  methods: {},
+  methods: {
+    NewMessage() {
+      this.$router.push('/newMessage')
+    }
+  },
 };
 </script>
 
@@ -80,4 +83,9 @@ export default {
 .footer {
   width: 100%;
 }
+ .create-msg {
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+  }
 </style>
