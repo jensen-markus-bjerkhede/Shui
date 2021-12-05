@@ -2,12 +2,17 @@
   <section id="stream">
     <section v-for="message in messages" :key="message.id">
       <Message
-          :streams="message.streams"
-          :content="message.content"
-          :name="message.name"
+        :streams="message.streams"
+        :content="message.content"
+        :name="message.name"
       />
     </section>
-    <img class="create-msg" src="../assets/create-msg.svg" @click="newMessage()" alt="Create message">
+    <img
+      class="create-msg"
+      src="../assets/create-msg.svg"
+      @click="newMessage()"
+      alt="Create message"
+    />
   </section>
 </template>
 
@@ -28,29 +33,29 @@ export default {
   },
   methods: {
     newMessage() {
-      this.$router.push('/newMessage')
+      this.$router.push("/newMessage");
     },
     async fetchMessages() {
-      const token = 'Bearer ' + sessionStorage.getItem('token');
+      const token = "Bearer " + sessionStorage.getItem("token");
       const getMessagesRequest = {
-        method: 'GET',
-        url: 'http://localhost:3000/messages/list',
+        method: "GET",
+        url: "http://localhost:3000/messages/list",
         headers: {
-          Authorization: token
-        }
+          Authorization: token,
+        },
       };
 
       await axios(getMessagesRequest)
-          .then((response) => {
-            if (response.status === 200) {
-              console.log(response)
-              this.messages = response.data;
-            }
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-    }
+        .then((response) => {
+          if (response.status === 200) {
+            console.log(response);
+            this.messages = response.data;
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
   },
 };
 </script>
@@ -97,9 +102,9 @@ export default {
 .footer {
   width: 100%;
 }
- .create-msg {
-    position: fixed;
-    bottom: 20px;
-    right: 15px;
-  }
+.create-msg {
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+}
 </style>

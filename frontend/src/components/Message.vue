@@ -1,11 +1,9 @@
 <template>
   <section>
-      <p>name: {{ name }}</p>
-      <p>{{ getDecryptedContent(content) }}</p>
-      <span v-for="stream in streams" :key="stream">
-        #{{stream}}
-      </span>
-    </section>
+    <p>name: {{ name }}</p>
+    <p>{{ getDecryptedContent(content) }}</p>
+    <span v-for="stream in streams" :key="stream"> #{{ stream }} </span>
+  </section>
 </template>
 
 <script>
@@ -23,7 +21,23 @@ export default {
   },
   methods: {
     getDecryptedContent(content) {
-      return CryptoJS.AES.decrypt(content, sessionStorage.getItem('userkey')).toString(CryptoJS.enc.Utf8);
+      return CryptoJS.AES.decrypt(
+        content,
+        sessionStorage.getItem("userkey")
+      ).toString(CryptoJS.enc.Utf8);
+    },
+    getDecryptedContent(content) {
+      console.log(
+        "hemligt",
+        CryptoJS.AES.encrypt(
+          "Detta är ett hemligt meddelande",
+          sessionStorage.getItem("userkey")
+        ).toString()
+      );
+      return CryptoJS.AES.decrypt(
+        content,
+        sessionStorage.getItem("userkey")
+      ).toString();
     },
   },
 };

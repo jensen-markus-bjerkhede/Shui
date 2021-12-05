@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <img class="stream-banner" src="@/assets/streamsbanner.svg" alt="" @click="verify()">
-    <router-view/>
+    <img
+      class="stream-banner"
+      src="@/assets/streamsbanner.svg"
+      alt=""
+      @click="verify()"
+    />
+    <router-view />
   </div>
 </template>
 <script>
@@ -11,35 +16,34 @@ export default {
   name: "App",
   methods: {
     async verify() {
-      const token = 'Bearer ' + sessionStorage.getItem('token');
+      const token = "Bearer " + sessionStorage.getItem("token");
       const request = {
         url: "http://localhost:3000/auth/verify",
         method: "get",
         headers: {
           "Content-type": "application/json",
-          "Authorization": token
+          Authorization: token,
         },
       };
 
       await axios(request)
-          .then((response) => {
-            if (response.status === 200) {
-              if (response.data) {
-                this.$router.push('/settings');
-              }
+        .then((response) => {
+          if (response.status === 200) {
+            if (response.data) {
+              this.$router.push("/settings");
             }
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-    }
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
   },
-}
+};
 </script>
 
 <style lang="scss">
-@import '@/scss/main';
-
+@import "@/scss/main";
 
 .center-flexbox {
   display: flex;
