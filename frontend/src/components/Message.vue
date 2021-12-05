@@ -1,19 +1,16 @@
 <template>
   <section>
-    <input v-model="name" type="text" />
-    <textarea v-model="content" type="text" />
-    <input v-model="streams" type="text" />
-    <button @click="createMessage()"></button>
-    <section v-if="streams">
-      <p>{{ name }}</p>
-      <p>{{ content }}</p>
-      <p>{{ getStreamsString() }}</p>
-      <p>{{ stream }}</p>
+      <p>name: {{ name }}</p>
+      <p>{{ getDecryptedContent(content) }}</p>
+      <span v-for="stream in streams" :key="stream">
+        #{{stream}}
+      </span>
     </section>
-  </section>
 </template>
 
 <script>
+import CryptoJS from "crypto-js";
+
 export default {
   name: "Messages",
   props: {
@@ -25,20 +22,8 @@ export default {
     return {};
   },
   methods: {
-    createMessage() {
-      this.$store.dispatch("createMessage", {
-        name: this.name,
-        content: this.content,
-        stream: this.stream,
-      });
-    },
-    getStreamsString() {
-      console.log(this.streams);
-      let streamsString = "";
-      this.streams.forEach((stream) => {
-        streamsString += "#" + stream + " ";
-      });
-      return streamsString;
+    getDecryptedContent(content) {
+      return CryptoJS.AES.decrypt(content, sessionStorage.getItem('userkey')).toString(CryptoJS.enc.Utf8);
     },
   },
 };

@@ -39,7 +39,7 @@ router.post('/create', async (req, res) => {
         res.status(400).send('Whoops! Did you really entered the credentials correctly?')
     }
 })
-router.post('/remove', async (req, res) => {
+router.delete('/delete', async (req, res) => {
 
     const token = req.headers['authorization'].split(' ')[1];
 
@@ -63,7 +63,7 @@ router.post('/remove', async (req, res) => {
             .remove({ uuid: verified_user.uuid })
             .write();
 
-        res.status(201).send('User removed.');
+        res.status(204).send('User removed.');
 
     } catch (err) {
         console.error(err)

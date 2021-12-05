@@ -26,9 +26,30 @@ router.post('/create', async (req, res) => {
             .push(newStream)
             .write()
 
-        res.status(201).send(newStream)
-            .value()
+        res.status(201).send("Successfully created stream")
 
+    } catch (err) {
+        console.error(err)
+        res.status(400).send(err)
+    }
+});
+
+router.delete('/delete', async (req, res) => {
+    try {
+        const token = req.headers['authorization'].split(' ')[1];
+        jwt.verify(token, process.env.JWT_KEY);
+
+        let stream = db
+            .get('streams')
+            .find({ name: req.body.name })
+            .value()
+        if (stream) {
+            db
+                .get('streams')
+                .remove(stream)
+                .write()
+            res.status(204).send("Successfully removed stream");
+        }
     } catch (err) {
         console.error(err)
         res.status(400).send(err)

@@ -4,10 +4,8 @@
     <h1>SHUI</h1>
     <h2>FLOW FREELY</h2>
     <section>
-      <label for="username">Username</label>
-      <input id="username" type="text" name="username" v-model="username" />
-      <label for="password">Password</label>
-      <input id="password" type="password" name="password" v-model="password" />
+      <input id="username" placeholder="Username" type="text" name="username" v-model="username" />
+      <input id="password" placeholder="Password" type="password" name="password" v-model="password" />
       <a href="#" class="btn" @click.prevent="register">Registrera</a>
     </section>
     <Waves class="footer" />
@@ -58,7 +56,7 @@ export default {
 
   h2 {
     margin: 0;
-    color: $yellow;
+    color: #00B2FF;
     font-size: 1.3rem;
     text-transform: uppercase;
     max-width: 16rem;

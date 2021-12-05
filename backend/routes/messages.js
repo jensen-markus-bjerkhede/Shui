@@ -24,11 +24,15 @@ router.post('/create', async (req, res) => {
         const messageBytes = CryptoJS.AES.decrypt(req.body.content, decryptedUserKey);
         const decryptedMessage = messageBytes.toString(CryptoJS.enc.Utf8);
 
-        let message = {
+        const encryptedMessage = CryptoJS.AES.encrypt(decryptedMessage, process.env.SECRET).toString();
+
+        const streamList = req.body.streams.replace(/\s/g, '').split(',');
+
+        const message = {
             id: shortId.generate(),
-            name: req.body.name,
-            content: CryptoJS.AES.encrypt(decryptedMessage, process.env.SECRET).toString(),
-            streams: req.body.streams,
+            name: user.username,
+            content: encryptedMessage,
+            streams: streamList,
             uuid: user.uuid
         }
         db.get('messages')
@@ -56,17 +60,7 @@ router.get('/list', async (req, res) => {
         const messages = db.get('messages')
             .value()
 
-        const filteredMessages = [];
-        let streams = req.query.streams.split(",");
-        console.log("streams", streams[0])
-
-        messages.forEach((message) => {
-            if (message.streams.some(r => streams.includes(r))) {
-                filteredMessages.push(message)
-            }
-        })
-
-        let returnMessages = filteredMessages.map(({ uuid, ...remainingAttrs }) => remainingAttrs)
+        let returnMessages = messages.map(({ uuid, ...remainingAttrs }) => remainingAttrs)
 
         returnMessages.forEach(message => {
 
@@ -78,7 +72,6 @@ router.get('/list', async (req, res) => {
 
             message.content = CryptoJS.AES.encrypt(decryptedMessage, decryptedUserKey).toString();
         });
-        console.log("Messages", returnMessages.length)
         return res.status(200).send(returnMessages);
 
     } catch (err) {

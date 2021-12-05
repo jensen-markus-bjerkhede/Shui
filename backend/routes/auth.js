@@ -41,7 +41,17 @@ router.post('/login', async (req, res) => {
         }
     }
     return res.send(400);
-})
+});
+
+router.get('/verify', async (req, res) => {
+    try {
+        const token = req.headers['authorization'].split(' ')[1];
+        jwt.verify(token, process.env.JWT_KEY);
+        res.status(200).send(true);
+    } catch (err) {
+        res.status(200).send(false);
+    }
+});
 
 
 module.exports = router;

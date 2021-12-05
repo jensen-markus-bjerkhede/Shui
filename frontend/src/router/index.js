@@ -20,9 +20,24 @@ const routes = [
     component: () => import('../views/Stream.vue')
   },
   {
+    path: '/settings',
+    name: 'Settings',
+    component: () => import('../views/Settings.vue')
+  },
+  {
+    path: '/removed',
+    name: 'Removed',
+    component: () => import('../views/Removed.vue')
+  },
+  {
     path: '/register',
     name: 'Register',
     component: () => import('../views/Register.vue')
+  },
+  {
+    path: '/newMessage',
+    name: 'newMessage',
+    component: () => import('../views/NewMessage.vue')
   }
 ]
 
