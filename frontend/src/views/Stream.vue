@@ -63,6 +63,9 @@ export default {
 <style lang="scss">
 @import "./../scss/variables";
 
+#stream {
+  padding-top: 3rem;
+}
 #login {
   height: 100vh;
   display: flex;
@@ -84,7 +87,6 @@ export default {
 
   h2 {
     margin: 0;
-    color: $yellow;
     font-size: 1.3rem;
     text-transform: uppercase;
     max-width: 16rem;
@@ -107,4 +109,5 @@ export default {
   bottom: 20px;
   right: 15px;
 }
+
 </style>

@@ -39,14 +39,12 @@ export default {
 
 <style lang="scss">
 @import './../scss/variables';
-
 #login {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   > img {
     margin-top: auto;
   }
@@ -58,7 +56,6 @@ export default {
     color: white;
     margin: .5rem 0;
   }
-
   h2 {
     margin: 0;
     color: #00B2FF;
@@ -67,7 +64,6 @@ export default {
     max-width: 16rem;
     text-align: center;
   }
-
   section {
     width: 100%;
     margin-top: auto;
@@ -75,7 +71,6 @@ export default {
     flex-direction: column;
     align-items: flex-start;
   }
-
 }
 .footer {
   width: 100%

@@ -1,28 +1,31 @@
 <template>
-  <section>
-    <!-- <input v-model="name" type="text" /> -->
+  <section id="settings">
+    <h2 class="settings-h2">Streams</h2>
     <article
       v-for="stream in streams"
       :key="stream.name"
-      class="center-flexbox"
+      class="center-flexbox-stream"
     >
-      <p>#{{ stream.name }}</p>
-      <button class="delete-stream-button" @click="deleteStream(stream.name)">
-        Ta bort
-      </button>
+    <section class="stream-border">
+      <span class="stream-name">#{{ stream.name }} </span>
+      <img class="remove-button" src="../assets/cross.svg" @click="deleteStream(stream.name)" alt="">
+      </section>
     </article>
 
-    <article class="add-stream">#<input v-model="name" type="text" /></article>
+    <article class="add-stream"><input placeholder="Stream name" v-model="name" type="text" /></article>
     <div class="create-message-button-container">
       <button class="create-message-button" @click="createStream()">
         Skapa Stream
       </button>
     </div>
+    <div class="create-message-button-container forget-padding">
     <div class="forget-me">
       <button class="create-message-button" @click="deleteUser()">
         Shit they're on to me!
       </button>
+          </div>
     </div>
+    <div @click="goBack()" class="go-back"> Go back</div>
   </section>
 </template>
 <script>
@@ -133,17 +136,38 @@ export default {
           console.error(error);
         });
     },
+    goBack() {
+      this.$router.push("/stream");
+    }
   },
 };
 </script>
 
 <style>
+::placeholder {
+  color:#FFFFFF;
+  opacity: 0.8;
+}
+#settings {
+  background-color: #ef4343;
+}
+  .remove-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 32px;
+  background: rgba(255, 255, 255, 0.2);
+}
 .triangle {
   align-self: flex-end;
 }
 .create-message-button-container {
   display: flex;
   justify-content: center;
+}
+.forget-padding{
+  padding-bottom: 1rem;
 }
 .create-message-button {
   font-family: PT Sans;
@@ -155,7 +179,8 @@ export default {
   width: 300px;
   height: 72px;
   border-style: none;
-  background: #ef4343;
+  color: #FFFFFF;
+  background: #19274A;
   border-radius: 4px;
 }
 .center-flexbox {
@@ -182,4 +207,43 @@ export default {
   background: #ffffff;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
 }
-</style> 
+.center-flexbox-stream{
+  display: inline-flex;
+  margin: 0 auto;
+}  
+.stream-border {
+  margin-top: 9px;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.stream-name {
+  padding-right: 13px;
+  padding-left: 9px;
+  color: #FFFFFF;
+  font-style: italic;
+  margin-left: 15px;
+}
+.settings-h2 {
+color: #FFFFFF;
+margin: 0;
+font-weight: bold;
+padding-top: 74px;
+padding-left: 52px;
+}
+.add-stream {
+  padding: 1rem;
+}
+.go-back {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #FFFFFF;
+  border: solid 1px #FFFFFF;
+  background-color: #ef4343;
+  border-radius: 4px;
+}
+</style>  
