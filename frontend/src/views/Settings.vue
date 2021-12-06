@@ -128,7 +128,7 @@ export default {
       await axios(request)
         .then((response) => {
           if (response.status === 204) {
-            sessionStorage.cler();
+            sessionStorage.clear();
             this.$router.push("/removed");
           }
         })
