@@ -121,7 +121,7 @@ export default {
         method: "delete",
         headers: {
           "Content-type": "application/json",
-          Authorization: token,
+          "Authorization": token,
         },
       };
 
@@ -136,6 +136,7 @@ export default {
           console.error(error);
         });
     },
+    
     goBack() {
       this.$router.push("/stream");
     }
