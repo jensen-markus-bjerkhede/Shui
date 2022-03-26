@@ -15,12 +15,10 @@ router.post('/login', async (req, res) => {
         .value()
 
     if (user) {
-
         const valid = await bcrypt.compare(req.body.password, user.password)
 
         if (valid) {
 
-          
             const bytes = CryptoJS.AES.decrypt(user.userkey, process.env.SECRET);
             const DECRYPTED_USER_KEY = bytes.toString(CryptoJS.enc.Utf8);
 

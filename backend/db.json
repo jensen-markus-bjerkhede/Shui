@@ -1,10 +1,60 @@
 {
   "users": [
-   
+    {
+      "uuid": "MN7JCRQB35",
+      "username": "markus",
+      "password": "$2b$10$c7GUrwrhZH/lwbw1BYYIjOemuYZh7EEFWY5PCg00ZS6VZNNTBzVBa",
+      "userkey": "U2FsdGVkX1+MVxcnNQVECmdi2y7VC3JMla1bDF3SX5k=",
+      "streams": [
+        "yyWNKm3tA",
+        "b3eisEELb"
+      ]
+    }
   ],
   "streams": [
-
+    {
+      "name": "funkar det nu då",
+      "password": "$2b$10$IqExUvcsffV6sybiHfYL4eKvrg77Lrsb76lMRdW.UNHHJ3numyaia",
+      "id": "yyWNKm3tA"
+    },
+    {
+      "name": "nystream",
+      "password": "$2b$10$0KWDqpy.MwaE3fVtgGQDteAwZ74WpdAbmd5RDol.yu6HqPjHwarhW",
+      "id": "b3eisEELb"
+    },
+    {
+      "name": "stream",
+      "password": "$2b$10$uylMtCWcBPPG..3qmwzh7.iQZmYMdhIT3z7SKVy4RmJFpqa5DMQGG",
+      "id": "p_8PSe0_4"
+    }
   ],
   "messages": [
+    {
+      "id": "BETirWzMf",
+      "name": "markus",
+      "content": "U2FsdGVkX18oo/HDEyemhIRlJ14cz23vl5S0mPEr1hE8JuabNkDuzU4kURHzP9yF",
+      "streams": [
+        "gbg"
+      ],
+      "uuid": "MN7JCRQB35"
+    },
+    {
+      "id": "I6Jly6EQl",
+      "name": "markus",
+      "content": "U2FsdGVkX1+GfP8IZrEZrm/g7tw3ovBW8q0aqX7QXM8=",
+      "streams": [
+        "hej"
+      ],
+      "uuid": "MN7JCRQB35"
+    },
+    {
+      "id": "Hia3xCO6i",
+      "name": "markus",
+      "content": "U2FsdGVkX19tn5d+fEaDD7TVyDoomlm/Wqrsr3mS3qc=",
+      "streams": [
+        "något"
+      ],
+      "uuid": "MN7JCRQB35"
+    }
   ]
 }

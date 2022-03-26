@@ -6,26 +6,34 @@
       :key="stream.name"
       class="center-flexbox-stream"
     >
-    <section class="stream-border">
-      <span class="stream-name">#{{ stream.name }} </span>
-      <img class="remove-button" src="../assets/cross.svg" @click="deleteStream(stream.name)" alt="">
+      <section class="stream-border">
+        <span class="stream-name">#{{ stream.name }} </span>
+        <img
+          class="remove-button"
+          src="../assets/cross.svg"
+          @click="deleteStream(stream.name)"
+          alt=""
+        />
       </section>
     </article>
 
-    <article class="add-stream"><input placeholder="Stream name" v-model="name" type="text" /></article>
+    <article class="add-stream">
+      <input placeholder="Stream name" v-model="name" type="text" />
+      <input placeholder="Password" v-model="password" type="password" />
+    </article>
     <div class="create-message-button-container">
       <button class="create-message-button" @click="createStream()">
         Skapa Stream
       </button>
     </div>
     <div class="create-message-button-container forget-padding">
-    <div class="forget-me">
-      <button class="create-message-button" @click="deleteUser()">
-        Shit they're on to me!
-      </button>
-          </div>
+      <div class="forget-me">
+        <button class="create-message-button" @click="deleteUser()">
+          Shit they're on to me!
+        </button>
+      </div>
     </div>
-    <div @click="goBack()" class="go-back"> Go back</div>
+    <div @click="goBack()" class="go-back">Go back</div>
   </section>
 </template>
 <script>
@@ -36,6 +44,7 @@ export default {
   data() {
     return {
       name: "",
+      password: "",
       streams: [],
     };
   },
@@ -45,7 +54,7 @@ export default {
   methods: {
     async createStream() {
       const token = "Bearer " + sessionStorage.getItem("token");
-      const data = { name: this.name };
+      const data = { name: this.name, password: this.password };
       const createStreamRequest = {
         method: "POST",
         url: "http://localhost:3000/streams/create",
@@ -61,6 +70,7 @@ export default {
         .then((response) => {
           if (response.status === 201) {
             this.name = "";
+            this.password = "";
             this.fetchStreams();
           }
         })
@@ -121,7 +131,7 @@ export default {
         method: "delete",
         headers: {
           "Content-type": "application/json",
-          "Authorization": token,
+          Authorization: token,
         },
       };
 
@@ -136,23 +146,23 @@ export default {
           console.error(error);
         });
     },
-    
+
     goBack() {
       this.$router.push("/stream");
-    }
+    },
   },
 };
 </script>
 
 <style>
 ::placeholder {
-  color:#FFFFFF;
+  color: #ffffff;
   opacity: 0.8;
 }
 #settings {
   background-color: #ef4343;
 }
-  .remove-container {
+.remove-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +177,7 @@ export default {
   display: flex;
   justify-content: center;
 }
-.forget-padding{
+.forget-padding {
   padding-bottom: 1rem;
 }
 .create-message-button {
@@ -180,8 +190,8 @@ export default {
   width: 300px;
   height: 72px;
   border-style: none;
-  color: #FFFFFF;
-  background: #19274A;
+  color: #ffffff;
+  background: #19274a;
   border-radius: 4px;
 }
 .center-flexbox {
@@ -208,10 +218,10 @@ export default {
   background: #ffffff;
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
 }
-.center-flexbox-stream{
+.center-flexbox-stream {
   display: inline-flex;
   margin: 0 auto;
-}  
+}
 .stream-border {
   margin-top: 9px;
   margin-left: 15px;
@@ -224,16 +234,16 @@ export default {
 .stream-name {
   padding-right: 13px;
   padding-left: 9px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-style: italic;
   margin-left: 15px;
 }
 .settings-h2 {
-color: #FFFFFF;
-margin: 0;
-font-weight: bold;
-padding-top: 74px;
-padding-left: 52px;
+  color: #ffffff;
+  margin: 0;
+  font-weight: bold;
+  padding-top: 74px;
+  padding-left: 52px;
 }
 .add-stream {
   padding: 1rem;
@@ -242,8 +252,8 @@ padding-left: 52px;
   position: absolute;
   top: 10px;
   right: 10px;
-  color: #FFFFFF;
-  border: solid 1px #FFFFFF;
+  color: #ffffff;
+  border: solid 1px #ffffff;
   background-color: #ef4343;
   border-radius: 4px;
 }
